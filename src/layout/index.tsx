@@ -15,7 +15,7 @@ const Layout: React.FC = ({ children }) => {
         </AntdLayout.Sider>
       </Col>
       <AntdLayout>
-        <AntdLayout.Header>
+        <AntdLayout.Header style={{ paddingTop: '1rem' }}>
           <Header />
         </AntdLayout.Header>
         <AntdLayout.Content>{children}</AntdLayout.Content>

@@ -1,6 +1,8 @@
 import React from 'react';
-import { Row, Button, Typography, Space } from 'antd';
+import { Row, Button, Typography, Space, Divider } from 'antd';
+import { ShoppingFilled } from '@ant-design/icons';
 import Theme from '../../theme/theme';
+import * as Styles from './styles';
 
 const Header: React.FC = () => {
   return (
@@ -11,7 +13,14 @@ const Header: React.FC = () => {
         style={{ width: '100%', height: '100%' }}
       >
         <Row align="middle">
-          <Typography.Title level={3} style={{ color: Theme.colors.secondary }}>
+          <Styles.EcommerceLogo>
+            <ShoppingFilled style={{ fontSize: '2rem' }} />
+          </Styles.EcommerceLogo>
+          <Divider type="vertical" />
+          <Typography.Title
+            level={1}
+            style={{ color: Theme.colors.primary, fontFamily: 'Cinzel' }}
+          >
             Ecommerce
           </Typography.Title>
         </Row>
