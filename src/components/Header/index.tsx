@@ -3,6 +3,7 @@ import { Row, Button, Typography, Space, Divider } from 'antd';
 import { ShoppingFilled } from '@ant-design/icons';
 import Theme from '../../theme/theme';
 import * as Styles from './styles';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   return (
@@ -27,10 +28,14 @@ const Header: React.FC = () => {
 
         <Space size="large">
           <Typography.Link strong>Produtos</Typography.Link>
-          <Button size="large">Log In</Button>
-          <Button type="primary" size="large">
-            Sign Up
-          </Button>
+          <Link to="/login">
+            <Button size="large">Log In</Button>
+          </Link>
+          <Link to="/register">
+            <Button type="primary" size="large">
+              Register
+            </Button>
+          </Link>
         </Space>
       </Row>
     </Row>

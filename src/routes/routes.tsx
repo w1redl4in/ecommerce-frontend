@@ -1,13 +1,18 @@
 import React from 'react';
 import { BrowserRouter, Switch } from 'react-router-dom';
-import LayoutRoute from './layoutRoute';
 
-import SignIn from '../pages/SignIn';
+import LoginAndRegisterRoute from './wrappers/LoginAndRegisterWrapper';
+import HomeRoute from './wrappers/HomeWrapper';
+
+import SignIn from '../pages/LogIn';
+import SignUp from '../pages/Register';
 
 const Routes: React.FC = () => (
   <BrowserRouter>
     <Switch>
-      <LayoutRoute path="/" exact component={SignIn} />
+      <HomeRoute path="/" exact component={<h1>Teste</h1>} />
+      <LoginAndRegisterRoute path="/login" component={SignIn} />
+      <LoginAndRegisterRoute path="/register" component={SignUp} />
     </Switch>
   </BrowserRouter>
 );

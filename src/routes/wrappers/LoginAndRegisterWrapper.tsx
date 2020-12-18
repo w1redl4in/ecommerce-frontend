@@ -1,8 +1,8 @@
 import { Route } from 'react-router-dom';
-import Layout from '../layout';
+import Layout from '../../layout/LoginAndRegister';
 import React from 'react';
 
-export default function LayoutRoute({
+export default function LoginAndRegisterLayout({
   component: Component,
   ...rest
 }: any): JSX.Element {
