@@ -1,11 +1,37 @@
-import React, { useCallback } from 'react';
-import { Row, Form, Input, Col, Button } from 'antd';
+import React, { useCallback, useState } from 'react';
+import { Row, Form, Input, Col, Button, notification } from 'antd';
 import Lottie from '../config/Lottie';
 import LoginLottie from '../assets/login-lottie.json';
+import { ecommerceApi } from '../services/api';
 
 const SignIn: React.FC = () => {
-  const onFinish = useCallback((values: any) => {
-    console.log(values);
+  const [loading, setLoading] = useState(false);
+
+  const onFinish = useCallback(async (values: any) => {
+    setLoading((load) => true);
+    setTimeout(async () => {
+      try {
+        const response = await ecommerceApi.post('/auth', {
+          email: values.email,
+          password: values.password,
+        });
+        console.log(response);
+        setLoading((load) => !load);
+        notification.success({
+          message: 'Sucesso!',
+          description: 'Você logou com sucesso.',
+          placement: 'topLeft',
+        });
+      } catch (error) {
+        console.log('error', error.data);
+        setLoading((load) => !load);
+        notification.error({
+          message: 'Erro!',
+          description: 'Dados inválidos.',
+          placement: 'topLeft',
+        });
+      }
+    }, 2000);
   }, []);
 
   return (
@@ -49,7 +75,7 @@ const SignIn: React.FC = () => {
             <Input.Password />
           </Form.Item>
           <Row justify="end">
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" loading={loading}>
               Sign In
             </Button>
           </Row>
