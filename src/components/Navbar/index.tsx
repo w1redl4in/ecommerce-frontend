@@ -1,4 +1,3 @@
-import { ShoppingCartOutlined } from '@ant-design/icons';
 import { Badge, Row, Space, Typography } from 'antd';
 import Avatar from 'antd/lib/avatar/avatar';
 import React from 'react';
