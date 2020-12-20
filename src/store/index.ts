@@ -3,15 +3,9 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from './rootReducer';
 import rootSaga from './rootSaga';
 
-declare global {
-  interface Console {
-    tron: any;
-  }
-}
-
 const sagaMonitor =
   process.env.NODE_ENV === 'development'
-    ? console.tron.createSagaMonitor()
+    ? console.tron.createSagaMonitor
     : null;
 
 const sagaMiddleware = createSagaMiddleware({

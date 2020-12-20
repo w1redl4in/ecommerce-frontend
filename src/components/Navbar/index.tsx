@@ -1,10 +1,10 @@
-import { Badge, Row, Space, Typography } from 'antd';
+import { Badge, Button, Row, Space, Typography } from 'antd';
 import Avatar from 'antd/lib/avatar/avatar';
 import React from 'react';
 
 const Navbar: React.FC = () => {
   return (
-    <Row align="middle" justify="space-between" style={{ fontSize: '1rem' }}>
+    <Row align="middle" justify="space-around">
       <Row>Logo</Row>
       <Row>
         <Space size="large">
@@ -24,6 +24,9 @@ const Navbar: React.FC = () => {
               <Typography.Text>Carrinho</Typography.Text>
             </Badge>
           </div>
+
+          <Button>Log In</Button>
+          <Button type="primary">Sign Up</Button>
         </Space>
       </Row>
     </Row>

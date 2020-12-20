@@ -1,39 +1,28 @@
-import React, { useState, useCallback } from 'react';
-import { Form, Row, notification, Input, Button, Typography } from 'antd';
-import { ecommerceApi } from '../../services/api';
+import React, { useCallback } from 'react';
+import { Form, Row, Input, Button, Typography } from 'antd';
 import Lottie from '../../config/Lottie';
 import ShopLottie from '../../assets/login-lottie.json';
 import Theme from '../../theme/theme';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchLoginAction } from '../../store/modules/auth';
+import { AppState } from '../../store/rootReducer';
+
+type Login = {
+  email: string;
+  password: string;
+};
 
 const LogInForm: React.FC = () => {
-  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
-  const onFinish = useCallback(async (values: any) => {
-    setLoading((load) => true);
-    setTimeout(async () => {
-      try {
-        const response = await ecommerceApi.post('/auth', {
-          email: values.email,
-          password: values.password,
-        });
-        console.log(response);
-        setLoading((load) => !load);
-        notification.success({
-          message: 'Sucesso!',
-          description: 'Você logou com sucesso.',
-          placement: 'topLeft',
-        });
-      } catch (error) {
-        console.log('error', error.data);
-        setLoading((load) => !load);
-        notification.error({
-          message: 'Erro!',
-          description: 'Dados inválidos.',
-          placement: 'topLeft',
-        });
-      }
-    }, 2000);
-  }, []);
+  const { isLoading } = useSelector((state: AppState) => state.auth);
+
+  const onFinish = useCallback(
+    async (values: Login) => {
+      dispatch(fetchLoginAction(values));
+    },
+    [dispatch]
+  );
 
   return (
     <Form layout="vertical" onFinish={onFinish}>
@@ -80,7 +69,7 @@ const LogInForm: React.FC = () => {
         <Input.Password />
       </Form.Item>
       <Row justify="end">
-        <Button type="primary" htmlType="submit" loading={loading}>
+        <Button type="primary" htmlType="submit" loading={isLoading}>
           Sign In
         </Button>
       </Row>
