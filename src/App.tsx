@@ -4,12 +4,21 @@ import './App.less';
 import Routes from './routes/routes';
 import { Provider } from 'react-redux';
 import store from './store';
+import Helmet from 'react-helmet';
+import favicon from './assets/buy.svg';
 
 function App() {
   return (
-    <Provider store={store}>
-      <Routes />;
-    </Provider>
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>E-commerce</title>
+        <link rel="icon" href={favicon} />
+      </Helmet>
+      <Provider store={store}>
+        <Routes />;
+      </Provider>
+    </>
   );
 }
 
