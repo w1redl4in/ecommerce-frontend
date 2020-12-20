@@ -87,7 +87,7 @@ const RegisterForm: React.FC = () => {
       </Form.Item>
       <Row justify="end">
         <Button type="primary" htmlType="submit" loading={isLoading}>
-          Sign In
+          Register
         </Button>
       </Row>
     </Form>
