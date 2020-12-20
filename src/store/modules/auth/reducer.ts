@@ -1,6 +1,7 @@
 import produce from 'immer';
 import { IReducerAction } from '../../rootReducer';
 import { IAuthState, ILogin, IRegister, AuthActionTypes } from './';
+import history from '../../../services/history';
 
 const initialState: IAuthState = {
   login: {} as ILogin,
@@ -45,6 +46,13 @@ export default function authReducer(
     case AuthActionTypes.FETCH_REGISTER_ERROR:
       return produce(state, (draft) => {
         draft.isLoading = false;
+      });
+
+    case AuthActionTypes.SIGN_OUT:
+      return produce(state, (draft) => {
+        draft.isLoading = false;
+        sessionStorage.removeItem('token');
+        history.push('/');
       });
 
     default:

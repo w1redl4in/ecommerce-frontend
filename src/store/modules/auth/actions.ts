@@ -23,3 +23,6 @@ export const fetchRegisterActionSuccess = (): IReducerAction<{}> =>
 
 export const fetchRegisterActionError = (): IReducerAction<{}> =>
   action(AuthActionTypes.FETCH_REGISTER_ERROR, {});
+
+export const signOutAction = (): IReducerAction<{}> =>
+  action(AuthActionTypes.SIGN_OUT, {});

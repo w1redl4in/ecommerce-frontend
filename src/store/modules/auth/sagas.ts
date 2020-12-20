@@ -11,6 +11,7 @@ import {
 } from '.';
 import { ecommerceApi } from '../../../services/api';
 import { IReducerAction } from '../../rootReducer';
+import history from '../../../services/history';
 
 export function* fetchLoginSaga(action: IReducerAction<ILogin>) {
   try {
@@ -20,12 +21,7 @@ export function* fetchLoginSaga(action: IReducerAction<ILogin>) {
       password,
     });
     yield put(fetchLoginActionSuccess(response.data));
-    notification.success({
-      message: 'Autenticação',
-      description:
-        'Autenticação realizada com sucesso. Você será redirecionado em poucos segundos.',
-      placement: 'topLeft',
-    });
+    history.push('/');
   } catch (error) {
     yield put(fetchLoginActionError());
     notification.error({

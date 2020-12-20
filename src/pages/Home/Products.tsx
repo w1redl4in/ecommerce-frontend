@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { List, Card, Col, Row, Typography, Space } from 'antd';
+import { List, Card, Col, Row, Typography, Space, Divider } from 'antd';
 import React from 'react';
 
 const Products: React.FC = () => {
@@ -64,8 +64,22 @@ const Products: React.FC = () => {
 
   return (
     <Row justify="center" align="middle" style={{ marginTop: '4rem' }}>
+      <Typography.Title
+        level={1}
+        style={{
+          textAlign: 'center',
+          background:
+            '-webkit-linear-gradient(rgb(255, 81, 47), rgb(221, 36, 118))',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}
+      >
+        Produtos que você encontra <br /> no nosso E-commerce
+      </Typography.Title>
+
       <Col span={18}>
         <List
+          style={{ paddingTop: '2rem' }}
           grid={{ gutter: 32, column: 4 }}
           dataSource={data}
           renderItem={(item) => (
@@ -89,6 +103,7 @@ const Products: React.FC = () => {
           )}
         />
       </Col>
+      <Divider />
     </Row>
   );
 };
