@@ -19,9 +19,9 @@ const Layout: React.FC = ({ children }) => {
           <Header />
         </AntdLayout.Header>
         <AntdLayout.Content>{children}</AntdLayout.Content>
-        <AntdLayout.Footer>
+        {/* <AntdLayout.Footer>
           <Footer />
-        </AntdLayout.Footer>
+        </AntdLayout.Footer> */}
       </AntdLayout>
     </AntdLayout>
   );
