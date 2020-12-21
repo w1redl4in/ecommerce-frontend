@@ -6,6 +6,7 @@ import Marketing from './Marketing';
 import Business from './Business';
 import Trends from './Trends';
 import EasyComeEasyGo from './EasyComeEasyGo';
+import Timeline from './Timeline';
 
 const Home: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const Home: React.FC = () => {
       <Products />
       <Trends />
       <EasyComeEasyGo />
+      <Timeline />
       <Business />
     </Col>
   );
