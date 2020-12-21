@@ -26,7 +26,9 @@ export function* fetchLoginSaga(action: IReducerAction<ILogin>) {
     yield put(fetchLoginActionError());
     notification.error({
       message: 'Autenticação',
-      description: error.response.data.errors.map((err) => err.message),
+      description:
+        error.response.data.errors.map((err) => err.message) ||
+        'Houve um erro inesperado, tente novamente mais tarde.',
       placement: 'topLeft',
     });
   }
