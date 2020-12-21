@@ -23,7 +23,11 @@ export const Container = styled.div`
         rgba(255, 81, 47, 0.1) 0%,
         rgba(221, 36, 118, 0.2) 100%
       ),
-      linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
+      linear-gradient(
+        180deg,
+        rgba(255, 81, 47, 0.1) 0%,
+        rgba(221, 36, 118, 0.2) 100%
+      );
     z-index: 2;
   }
 

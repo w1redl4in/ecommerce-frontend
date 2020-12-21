@@ -1,9 +1,7 @@
 import React from 'react';
-import { Row, Button, Typography, Space, Divider } from 'antd';
-import { ShoppingFilled } from '@ant-design/icons';
-import Theme from '../../theme/theme';
-import * as Styles from './styles';
+import { Row, Button, Typography, Space } from 'antd';
 import { Link } from 'react-router-dom';
+import theme from '../../theme/theme';
 
 const Header: React.FC = () => {
   return (
@@ -14,25 +12,24 @@ const Header: React.FC = () => {
         style={{ width: '100%', height: '100%' }}
       >
         <Row align="middle">
-          <Styles.EcommerceLogo>
-            <ShoppingFilled style={{ fontSize: '2rem' }} />
-          </Styles.EcommerceLogo>
-          <Divider type="vertical" />
-          <Typography.Title
-            level={1}
-            style={{ color: Theme.colors.primary, fontFamily: 'Cinzel' }}
-          >
-            Ecommerce
+          <Typography.Title level={1} style={{ color: theme.colors.primary }}>
+            logo
           </Typography.Title>
         </Row>
 
         <Space size="large">
-          <Typography.Link strong>Produtos</Typography.Link>
+          <Link to="/">
+            <Typography.Link strong>Produtos</Typography.Link>
+          </Link>
           <Link to="/login">
             <Button size="large">Log In</Button>
           </Link>
           <Link to="/register">
-            <Button type="primary" size="large">
+            <Button
+              type="primary"
+              size="large"
+              style={theme.backgroundGradient}
+            >
               Register
             </Button>
           </Link>

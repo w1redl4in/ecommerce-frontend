@@ -7,6 +7,7 @@ import {
   LinkedinFilled,
   TabletFilled,
 } from '@ant-design/icons';
+import theme from '../../theme/theme';
 
 const Business: React.FC = () => {
   const [contributors] = useState([
@@ -50,18 +51,9 @@ const Business: React.FC = () => {
       <Col span={12}>
         <Row justify="center">
           <Col>
-            <Typography.Title
-              level={1}
-              style={{
-                background:
-                  '-webkit-linear-gradient(rgb(255, 81, 47), rgb(221, 36, 118))',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              Wanna be in touch or just know who made this?
+            <Typography.Title level={1} style={theme.gradientText}>
+              Wanna be in touch or just get to know who made this?
             </Typography.Title>
-            <Typography.Title level={2}></Typography.Title>
             {contributors.map((contributor) => (
               <Row
                 style={{ margin: '1rem' }}
@@ -85,7 +77,11 @@ const Business: React.FC = () => {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      <BehanceSquareFilled style={{ fontSize: '2rem' }} />
+                      <BehanceSquareFilled
+                        style={{
+                          fontSize: '2rem',
+                        }}
+                      />
                     </a>
                   ) : (
                     <a

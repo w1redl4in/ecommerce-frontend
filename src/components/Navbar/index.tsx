@@ -4,6 +4,7 @@ import useToken from '../../hooks/auth';
 import BuyLogo from '../../assets/buy.svg';
 import { Link } from 'react-router-dom';
 import Avatar from './Avatar';
+import theme from '../../theme/theme';
 
 const Navbar: React.FC = () => {
   const token = useToken();
@@ -24,26 +25,8 @@ const Navbar: React.FC = () => {
         }}
       >
         <Space size="large">
-          <Typography.Link
-            style={{
-              background:
-                '-webkit-linear-gradient(rgb(255, 81, 47), rgb(221, 36, 118))',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            Home
-          </Typography.Link>
-          <Typography.Link
-            style={{
-              background:
-                '-webkit-linear-gradient(rgb(255, 81, 47), rgb(221, 36, 118))',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            Produtos
-          </Typography.Link>
+          <Typography.Link style={theme.gradientText}>Home</Typography.Link>
+          <Typography.Link style={theme.gradientText}>Produtos</Typography.Link>
         </Space>
       </Row>
       <Row align="middle">
@@ -54,16 +37,18 @@ const Navbar: React.FC = () => {
                 <Button>Log In</Button>
               </Link>
               <Link to="/register">
-                <Button type="primary">Sign Up</Button>
+                <Button type="primary" style={theme.backgroundGradient}>
+                  Sign Up
+                </Button>
               </Link>
             </>
           ) : (
             <>
-              <div style={{ cursor: 'pointer' }}>
-                <Badge count={5} showZero offset={[1, -7]}>
+              <Link to="/cart">
+                <Badge count={0} showZero offset={[1, -7]}>
                   <Typography.Text>Carrinho</Typography.Text>
                 </Badge>
-              </div>
+              </Link>
               <Avatar />
             </>
           )}

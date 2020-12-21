@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { Avatar as AntdAvatar, Dropdown, Menu } from 'antd';
 import { useDispatch } from 'react-redux';
 import { signOutAction } from '../../store/modules/auth';
+import { Link } from 'react-router-dom';
 
 const Avatar: React.FC = () => {
   const dispatch = useDispatch();
@@ -13,13 +14,7 @@ const Avatar: React.FC = () => {
   const menu = (
     <Menu>
       <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="http://www.alipay.com/"
-        >
-          Perfil
-        </a>
+        <Link to="/profile">Profile</Link>
       </Menu.Item>
       <Menu.Item danger onClick={handleExit}>
         Exit
@@ -33,6 +28,7 @@ const Avatar: React.FC = () => {
         style={{ cursor: 'pointer' }}
         src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png"
         shape="circle"
+        size={64}
       />
     </Dropdown>
   );
