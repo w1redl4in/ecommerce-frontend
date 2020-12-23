@@ -1,10 +1,12 @@
-import { Badge, Button, Row, Space, Typography } from 'antd';
+import { Badge, Button, Dropdown, Row, Space, Typography } from 'antd';
 import React from 'react';
 import useToken from '../../hooks/auth';
 import BuyLogo from '../../assets/buy.svg';
 import { Link } from 'react-router-dom';
 import Avatar from './Avatar';
+import DropdownMenu from './Dropdown';
 import theme from '../../theme/theme';
+import { DownOutlined } from '@ant-design/icons';
 
 const Navbar: React.FC = () => {
   const token = useToken();
@@ -14,7 +16,7 @@ const Navbar: React.FC = () => {
       <Row align="middle">
         <Space size="large">
           <img src={BuyLogo} alt="logo" width="50px" />
-          <Typography.Link>E-commerce</Typography.Link>
+          <Typography.Link>Ecommerce</Typography.Link>
         </Space>
       </Row>
 
@@ -26,7 +28,16 @@ const Navbar: React.FC = () => {
       >
         <Space size="large">
           <Typography.Link style={theme.gradientText}>Home</Typography.Link>
-          <Typography.Link style={theme.gradientText}>Produtos</Typography.Link>
+          <Typography.Link style={theme.gradientText}>
+            <Dropdown overlay={DropdownMenu}>
+              <Link to="/products" component={Typography.Link}>
+                Produtos{' '}
+                <DownOutlined
+                  style={(theme.gradientText, { fontSize: '0.9rem' })}
+                />
+              </Link>
+            </Dropdown>
+          </Typography.Link>
         </Space>
       </Row>
       <Row align="middle">

@@ -14,8 +14,8 @@ const Marketing: React.FC = () => {
               <img src={Shop} alt="" width="200px" />
             </Row>
             <Row justify="center" style={{ paddingTop: '1rem' }}>
-              <Typography.Paragraph style={{ color: '#929191' }}>
-                Um estoque completo com diversos produtos.
+              <Typography.Paragraph style={{ fontWeight: 200 }}>
+                um estoque com diversos produtos
               </Typography.Paragraph>
             </Row>
           </Col>
@@ -25,10 +25,10 @@ const Marketing: React.FC = () => {
             </Row>
             <Row justify="center" style={{ paddingTop: '1rem' }}>
               <Typography.Paragraph
-                style={{ color: '#929191', textAlign: 'center' }}
+                style={{ fontWeight: 200, textAlign: 'center' }}
               >
                 O importante está nos detalhes, <br /> tenha conhecimento sobre
-                cada passo de sua compra.
+                cada passo da sua compra.
               </Typography.Paragraph>
             </Row>
           </Col>
@@ -37,7 +37,7 @@ const Marketing: React.FC = () => {
               <img src={Shop3} alt="" width="200px" />
             </Row>
             <Row justify="center" style={{ paddingTop: '1rem' }}>
-              <Typography.Paragraph style={{ color: '#929191' }}>
+              <Typography.Paragraph style={{ fontWeight: 200 }}>
                 Receba em sua casa sem burocracia.
               </Typography.Paragraph>
             </Row>

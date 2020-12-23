@@ -20,13 +20,13 @@ export const Container = styled.div`
     right: 0;
     background: linear-gradient(
         180deg,
-        rgba(255, 81, 47, 0.1) 0%,
-        rgba(221, 36, 118, 0.2) 100%
+        rgba(255, 81, 47, 0.15) 0%,
+        rgba(221, 36, 118, 0.15) 100%
       ),
       linear-gradient(
         180deg,
-        rgba(255, 81, 47, 0.1) 0%,
-        rgba(221, 36, 118, 0.2) 100%
+        rgba(255, 81, 47, 0.15) 0%,
+        rgba(221, 36, 118, 0.15) 100%
       );
     z-index: 2;
   }
@@ -51,7 +51,7 @@ export const VideoBg = styled.div`
 
 export const Video = styled.video`
   width: 100%;
-  height: 100%;
+  height: 200%;
   -o-object-fit: cover;
   object-fit: cover;
 `;
@@ -60,8 +60,10 @@ export const VideoContent = styled.div`
   z-index: 3;
   max-width: 1200px;
   position: absolute;
-  padding: 2px 200px;
   display: flex;
+  top: 70%;
+  left: 35%;
   flex-direction: column;
   align-items: flex-start;
+  text-align: center;
 `;

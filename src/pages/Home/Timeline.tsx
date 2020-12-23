@@ -1,51 +1,63 @@
 import React from 'react';
-import { Row, Col, Timeline as AntdTimeline, Typography, Divider } from 'antd';
+import {
+  Row,
+  Col,
+  Timeline as AntdTimeline,
+  Typography,
+  Divider,
+  Space,
+} from 'antd';
 import theme from '../../theme/theme';
-import Question from '../../assets/question.svg';
+import FastTravel from '../../assets/fast-travel.json';
+import Lottie from '../../config/Lottie';
 
 const Timeline: React.FC = () => {
   return (
-    <Row justify="center" align="middle" style={{ minHeight: '100vh' }}>
-      <Col span={10}>
-        <Row justify="center" align="middle">
-          <AntdTimeline
-            pending={
-              <Typography.Title level={4} style={theme.gradientText}>
-                Está esperando o que?
-              </Typography.Title>
-            }
-          >
-            <AntdTimeline.Item>
-              <Typography.Text style={theme.gradientText}>
-                do conforto da sua casa
-              </Typography.Text>
-            </AntdTimeline.Item>
-            <AntdTimeline.Item>
-              <Typography.Text style={theme.gradientText}>
-                fácil acesso
-              </Typography.Text>
-            </AntdTimeline.Item>
-            <AntdTimeline.Item>
-              <Typography.Text style={theme.gradientText}>
-                interface user-friendly
-              </Typography.Text>
-            </AntdTimeline.Item>
-            <AntdTimeline.Item>
-              <Typography.Text style={theme.gradientText}>
-                diversos produtos
-              </Typography.Text>
-            </AntdTimeline.Item>
-            <AntdTimeline.Item>
-              <Typography.Text style={theme.gradientText}>
-                descontos todos os dias
-              </Typography.Text>
-            </AntdTimeline.Item>
-          </AntdTimeline>
+    <Row style={{ minHeight: '100vh' }}>
+      <Col span={24}>
+        <Row align="top" justify="center">
+          <Typography.Title style={theme.gradientText}>
+            Entrega rápida e segura !
+          </Typography.Title>
         </Row>
-      </Col>
-      <Col span={10}>
-        <Row justify="center" align="middle">
-          <img src={Question} alt="question" width="80%" />
+        <Row
+          align="middle"
+          justify="start"
+          style={{ minHeight: '80vh', paddingLeft: '10%' }}
+        >
+          <Col span={24}>
+            <Row justify="space-around" align="middle">
+              <Row>
+                <AntdTimeline>
+                  <AntdTimeline.Item color="gray">
+                    <Typography.Text style={theme.gradientText}>
+                      Postado
+                    </Typography.Text>
+                  </AntdTimeline.Item>
+                  <AntdTimeline.Item color="gray">
+                    <Typography.Text style={theme.gradientText}>
+                      Saiu pra entrega
+                    </Typography.Text>
+                  </AntdTimeline.Item>
+                  <AntdTimeline.Item color="green">
+                    <Typography.Text style={theme.gradientText}>
+                      Entregue
+                    </Typography.Text>
+                  </AntdTimeline.Item>
+                </AntdTimeline>
+              </Row>
+              <Row>
+                <Lottie
+                  animationData={FastTravel}
+                  autoplay
+                  loop
+                  isClickToPauseDisabled
+                  height={600}
+                  width={600}
+                />
+              </Row>
+            </Row>
+          </Col>
         </Row>
       </Col>
       <Divider />

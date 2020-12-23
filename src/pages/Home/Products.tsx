@@ -64,58 +64,68 @@ const Products: React.FC = () => {
   ];
 
   return (
-    <Row justify="center" align="middle" style={{ marginTop: '4rem' }}>
+    <Row
+      justify="center"
+      align="middle"
+      style={{ marginTop: '4rem', minHeight: '100vh' }}
+    >
       <Typography.Title level={1} style={theme.gradientText}>
-        Produtos que você encontra <br /> no nosso E-commerce
+        Produtos que você pode encontrar por aqui
       </Typography.Title>
 
-      <Col span={18}>
+      <Col span={24}>
         <List
           pagination={{
-            pageSize: 8,
+            pageSize: 3,
+            style: {
+              display: 'flex',
+              justifyContent: 'center',
+            },
           }}
+          grid={{ column: 3 }}
           style={{ paddingTop: '2rem' }}
-          grid={{
-            gutter: 16,
-            xs: 1,
-            sm: 2,
-            md: 4,
-            lg: 4,
-            xl: 6,
-            xxl: 4,
-          }}
           dataSource={data}
           renderItem={(item) => (
             <List.Item>
-              <Card
-                hoverable
-                style={{
-                  width: '300px',
-                  padding: '1rem',
-                }}
-                cover={
-                  <Row justify="center">
-                    <Image
-                      width={150}
-                      src={item.image}
-                      preview={false}
-                      placeholder
-                    />
-                  </Row>
-                }
-              >
-                <Card.Meta
-                  title={item.title}
-                  description={
-                    <Space direction="vertical">
-                      <Typography.Text>{item.description}</Typography.Text>
-                      <Typography.Text strong style={theme.gradientText}>
-                        {item.price}
-                      </Typography.Text>
-                    </Space>
+              <Row justify="center" align="middle">
+                <Card
+                  bordered={false}
+                  hoverable
+                  style={{
+                    minWidth: '300px',
+                    padding: '1rem',
+                  }}
+                  cover={
+                    <Row justify="center" align="middle">
+                      <Image
+                        width={150}
+                        src={item.image}
+                        preview={false}
+                        placeholder
+                      />
+                    </Row>
                   }
-                />
-              </Card>
+                >
+                  <Card.Meta
+                    style={{ textAlign: 'center' }}
+                    title={
+                      <Typography.Title ellipsis level={2}>
+                        {item.title}
+                      </Typography.Title>
+                    }
+                    description={
+                      <Space direction="vertical">
+                        <Typography.Text style={{ fontWeight: 200 }}>
+                          {item.description}
+                        </Typography.Text>
+                        <Typography.Text style={{ fontWeight: 200 }}>
+                          {item.price}
+                        </Typography.Text>
+                      </Space>
+                    }
+                  />
+                </Card>
+              </Row>
             </List.Item>
           )}
         />

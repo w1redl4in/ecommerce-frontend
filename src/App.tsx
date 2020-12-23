@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>E-commerce</title>
+        <title>Ecommerce</title>
         <link rel="icon" href={favicon} />
       </Helmet>
       <Router history={history}>
