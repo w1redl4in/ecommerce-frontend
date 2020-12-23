@@ -69,66 +69,71 @@ const Products: React.FC = () => {
       align="middle"
       style={{ marginTop: '4rem', minHeight: '100vh' }}
     >
-      <Typography.Title level={1} style={theme.gradientText}>
-        Produtos que você pode encontrar por aqui
-      </Typography.Title>
-
-      <Col span={24}>
-        <List
-          pagination={{
-            pageSize: 3,
-            style: {
-              display: 'flex',
-              justifyContent: 'center',
-            },
-          }}
-          grid={{ column: 3 }}
-          style={{ paddingTop: '2rem' }}
-          dataSource={data}
-          renderItem={(item) => (
-            <List.Item>
-              <Row justify="center" align="middle">
-                <Card
-                  bordered={false}
-                  hoverable
-                  style={{
-                    minWidth: '300px',
-                    padding: '1rem',
-                  }}
-                  cover={
-                    <Row justify="center" align="middle">
-                      <Image
-                        width={150}
-                        src={item.image}
-                        preview={false}
-                        placeholder
+      <Col xxl={24} xl={24} lg={24} md={24} sm={24} xs={24}>
+        <Row justify="center" style={{ textAlign: 'center' }}>
+          <Typography.Title level={1} style={theme.gradientText}>
+            Produtos que você pode encontrar por aqui
+          </Typography.Title>
+        </Row>
+        <Row justify="center">
+          <Col xxl={24} xl={24} lg={24} md={24} sm={24}>
+            <List
+              pagination={{
+                pageSize: 3,
+                style: {
+                  display: 'flex',
+                  justifyContent: 'center',
+                },
+              }}
+              grid={{ xxl: 3, xl: 3, lg: 2, md: 2, sm: 1, xs: 1 }}
+              style={{ paddingTop: '2rem' }}
+              dataSource={data}
+              renderItem={(item) => (
+                <List.Item>
+                  <Row justify="center" align="middle">
+                    <Card
+                      bordered={false}
+                      hoverable
+                      style={{
+                        width: 'auto',
+                        padding: '1rem',
+                      }}
+                      cover={
+                        <Row justify="center" align="middle">
+                          <Image
+                            width={150}
+                            src={item.image}
+                            preview={false}
+                            placeholder
+                          />
+                        </Row>
+                      }
+                    >
+                      <Card.Meta
+                        style={{ textAlign: 'center' }}
+                        title={
+                          <Typography.Title ellipsis level={2}>
+                            {item.title}
+                          </Typography.Title>
+                        }
+                        description={
+                          <Space direction="vertical">
+                            <Typography.Text style={{ fontWeight: 200 }}>
+                              {item.description}
+                            </Typography.Text>
+                            <Typography.Text style={{ fontWeight: 200 }}>
+                              {item.price}
+                            </Typography.Text>
+                          </Space>
+                        }
                       />
-                    </Row>
-                  }
-                >
-                  <Card.Meta
-                    style={{ textAlign: 'center' }}
-                    title={
-                      <Typography.Title ellipsis level={2}>
-                        {item.title}
-                      </Typography.Title>
-                    }
-                    description={
-                      <Space direction="vertical">
-                        <Typography.Text style={{ fontWeight: 200 }}>
-                          {item.description}
-                        </Typography.Text>
-                        <Typography.Text style={{ fontWeight: 200 }}>
-                          {item.price}
-                        </Typography.Text>
-                      </Space>
-                    }
-                  />
-                </Card>
-              </Row>
-            </List.Item>
-          )}
-        />
+                    </Card>
+                  </Row>
+                </List.Item>
+              )}
+            />
+          </Col>
+        </Row>
       </Col>
       <Divider />
     </Row>

@@ -6,25 +6,39 @@ import { Link } from 'react-router-dom';
 import Avatar from './Avatar';
 import DropdownMenu from './Dropdown';
 import theme from '../../theme/theme';
-import { DownOutlined } from '@ant-design/icons';
+import { DownOutlined, MenuOutlined } from '@ant-design/icons';
+import { EnhancedRow, Menu, MobileIcon } from './styles';
 
 const Navbar: React.FC = () => {
   const token = useToken();
 
   return (
-    <Row align="middle" justify="space-between" style={{ padding: '0 2rem' }}>
+    <EnhancedRow
+      align="middle"
+      justify="space-between"
+      className="container"
+      style={{ padding: '0 2rem' }}
+    >
       <Row align="middle">
         <Space size="large">
           <img src={BuyLogo} alt="logo" width="50px" />
           <Typography.Link>Ecommerce</Typography.Link>
         </Space>
       </Row>
-
+      <MobileIcon justify="end" align="middle">
+        <MenuOutlined style={{ fontSize: '2rem' }} />
+      </MobileIcon>
+      <Menu>
+        <Row>Teste</Row>
+        <Row>Teste</Row>
+        <Row>Teste</Row>
+      </Menu>
       <Row
         justify="center"
         style={{
           fontSize: '1.2rem',
         }}
+        className="items"
       >
         <Space size="large">
           <Typography.Link style={theme.gradientText}>Home</Typography.Link>
@@ -40,7 +54,8 @@ const Navbar: React.FC = () => {
           </Typography.Link>
         </Space>
       </Row>
-      <Row align="middle">
+
+      <Row align="middle" className="buttons">
         <Space size="large">
           {!token ? (
             <>
@@ -69,7 +84,7 @@ const Navbar: React.FC = () => {
           )}
         </Space>
       </Row>
-    </Row>
+    </EnhancedRow>
   );
 };
 

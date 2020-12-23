@@ -32,9 +32,7 @@ export const Container = styled.div`
   }
 
   @media screen and (max-width: 680px) {
-    align-items: center;
-    padding: 0 5rem 0 0;
-    justify-content: flex-start;
+    visibility: hidden;
   }
 `;
 
@@ -58,12 +56,9 @@ export const Video = styled.video`
 
 export const VideoContent = styled.div`
   z-index: 3;
-  max-width: 1200px;
-  position: absolute;
+  width: 100%;
   display: flex;
-  top: 70%;
-  left: 35%;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 `;

@@ -7,7 +7,7 @@ import Shop3 from '../../assets/undraw-smart-buy.svg';
 const Marketing: React.FC = () => {
   return (
     <Row justify="center" align="middle" style={{ paddingTop: '4rem' }}>
-      <Col span={16}>
+      <Col xxl={24} xl={24} lg={24} md={19} sm={16} xs={16}>
         <Row align="middle" justify="space-around">
           <Col>
             <Row justify="center">

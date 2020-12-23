@@ -43,12 +43,12 @@ const Business: React.FC = () => {
 
   return (
     <Row justify="center" align="middle" style={{ padding: '0 3rem' }}>
-      <Col span={12}>
-        <Row justify="center">
+      <Col xxl={12} xl={12} lg={12}>
+        <Row justify="center" className="business-svg">
           <img src={BusinessLogo} alt="" width="600px" />
         </Row>
       </Col>
-      <Col span={12}>
+      <Col xxl={12} xl={12} lg={12}>
         <Row justify="center">
           <Col>
             <Typography.Title level={1} style={theme.gradientText}>

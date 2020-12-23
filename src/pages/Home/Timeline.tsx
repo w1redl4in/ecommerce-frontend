@@ -30,7 +30,7 @@ const Timeline: React.FC = () => {
         </Row>
         <Row
           align="middle"
-          justify="start"
+          justify="center"
           style={{ minHeight: '80vh', paddingLeft: '10%' }}
         >
           <Col span={24}>
@@ -64,7 +64,7 @@ const Timeline: React.FC = () => {
                   </AntdTimeline.Item>
                 </AntdTimeline>
               </Row>
-              <Row>
+              <Row className="lottie-delivery">
                 <Lottie
                   animationData={FastTravel}
                   autoplay

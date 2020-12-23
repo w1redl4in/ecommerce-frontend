@@ -2,3 +2,14 @@
   padding: 3px;
   border: 2px solid white;
 }
+
+@media screen and (max-width: 800px) {
+  .lottie-delivery {
+    display: none;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .business-svg {
+    display: none;
+  }
+}
