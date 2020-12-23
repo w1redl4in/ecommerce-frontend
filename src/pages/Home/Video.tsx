@@ -12,7 +12,7 @@ const Carousel: React.FC = () => {
       <VideoContent>
         <Typography.Title level={1} style={{ color: 'white' }}>
           Compre de qualquer lugar <br />
-          recebe em casa
+          receba em casa
         </Typography.Title>
       </VideoContent>
     </Container>

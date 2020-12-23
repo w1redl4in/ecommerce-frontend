@@ -10,6 +10,14 @@ import {
 import theme from '../../theme/theme';
 import FastTravel from '../../assets/fast-travel.json';
 import Lottie from '../../config/Lottie';
+import {
+  BarcodeOutlined,
+  CarOutlined,
+  CheckCircleOutlined,
+  CreditCardOutlined,
+  HomeOutlined,
+  UndoOutlined,
+} from '@ant-design/icons';
 
 const Timeline: React.FC = () => {
   return (
@@ -29,17 +37,27 @@ const Timeline: React.FC = () => {
             <Row justify="space-around" align="middle">
               <Row>
                 <AntdTimeline>
-                  <AntdTimeline.Item color="gray">
+                  <AntdTimeline.Item color="gray" dot={<UndoOutlined />}>
                     <Typography.Text style={theme.gradientText}>
-                      Postado
+                      Aguardando pagamento
                     </Typography.Text>
                   </AntdTimeline.Item>
-                  <AntdTimeline.Item color="gray">
+                  <AntdTimeline.Item color="gray" dot={<CreditCardOutlined />}>
                     <Typography.Text style={theme.gradientText}>
-                      Saiu pra entrega
+                      Pagamento confirmado
                     </Typography.Text>
                   </AntdTimeline.Item>
-                  <AntdTimeline.Item color="green">
+                  <AntdTimeline.Item color="gray" dot={<BarcodeOutlined />}>
+                    <Typography.Text style={theme.gradientText}>
+                      Gerando nota fiscal
+                    </Typography.Text>
+                  </AntdTimeline.Item>
+                  <AntdTimeline.Item color="gray" dot={<CarOutlined />}>
+                    <Typography.Text style={theme.gradientText}>
+                      Produto enviado
+                    </Typography.Text>
+                  </AntdTimeline.Item>
+                  <AntdTimeline.Item color="green" dot={<HomeOutlined />}>
                     <Typography.Text style={theme.gradientText}>
                       Entregue
                     </Typography.Text>

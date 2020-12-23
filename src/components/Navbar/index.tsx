@@ -45,10 +45,14 @@ const Navbar: React.FC = () => {
           {!token ? (
             <>
               <Link to="/login">
-                <Button>Log In</Button>
+                <Button size="large">Log In</Button>
               </Link>
               <Link to="/register">
-                <Button type="primary" style={theme.backgroundGradient}>
+                <Button
+                  type="primary"
+                  size="large"
+                  style={theme.backgroundGradient}
+                >
                   Sign Up
                 </Button>
               </Link>

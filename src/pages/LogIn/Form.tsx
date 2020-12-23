@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchLoginAction } from '../../store/modules/auth';
 import { AppState } from '../../store/rootReducer';
 import theme from '../../theme/theme';
+import { openForgotPasswordModal } from '../../store/modules/forgot-password';
 
 type Login = {
   email: string;
@@ -24,6 +25,10 @@ const LogInForm: React.FC = () => {
     },
     [dispatch]
   );
+
+  const handleForgotPasswordWorkFlow = useCallback(() => {
+    dispatch(openForgotPasswordModal());
+  }, [dispatch]);
 
   return (
     <Form layout="vertical" onFinish={onFinish}>
@@ -70,7 +75,10 @@ const LogInForm: React.FC = () => {
         <Input.Password />
       </Form.Item>
       <Row justify="space-between" align="middle">
-        <Row style={{ cursor: 'pointer' }}>
+        <Row
+          style={{ cursor: 'pointer' }}
+          onClick={handleForgotPasswordWorkFlow}
+        >
           <Typography.Text style={theme.gradientText} underline>
             Esqueceu sua senha?
           </Typography.Text>
