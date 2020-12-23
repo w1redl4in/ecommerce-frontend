@@ -6,6 +6,7 @@ import Theme from '../../theme/theme';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchLoginAction } from '../../store/modules/auth';
 import { AppState } from '../../store/rootReducer';
+import theme from '../../theme/theme';
 
 type Login = {
   email: string;
@@ -68,7 +69,12 @@ const LogInForm: React.FC = () => {
       >
         <Input.Password />
       </Form.Item>
-      <Row justify="end">
+      <Row justify="space-between" align="middle">
+        <Row style={{ cursor: 'pointer' }}>
+          <Typography.Text style={theme.gradientText} underline>
+            Esqueceu sua senha?
+          </Typography.Text>
+        </Row>
         <Button type="primary" htmlType="submit" loading={isLoading}>
           Sign In
         </Button>

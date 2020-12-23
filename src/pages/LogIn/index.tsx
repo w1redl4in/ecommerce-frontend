@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import LogInForm from './Form';
+import ForgotPasswordModal from './ForgotPasswordModal';
 
 const LogIn: React.FC = () => {
   return (
@@ -8,6 +9,7 @@ const LogIn: React.FC = () => {
       <Col span={8}>
         <LogInForm />
       </Col>
+      <ForgotPasswordModal />
     </Row>
   );
 };
