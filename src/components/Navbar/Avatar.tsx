@@ -14,8 +14,6 @@ const Avatar: React.FC = () => {
 
   const { imageUrl } = useSelector((state: AppState) => state.auth.user);
 
-  console.log(imageUrl);
-
   const menu = (
     <Menu>
       <Menu.Item>

@@ -6,14 +6,13 @@ import { Link } from 'react-router-dom';
 import Avatar from './Avatar';
 import DropdownMenu from './Dropdown';
 import theme from '../../theme/theme';
-import { DownOutlined, MenuOutlined } from '@ant-design/icons';
-import { EnhancedRow, Menu, MobileIcon } from './styles';
+import { DownOutlined } from '@ant-design/icons';
 
 const Navbar: React.FC = () => {
   const token = useToken();
 
   return (
-    <EnhancedRow
+    <Row
       align="middle"
       justify="space-between"
       className="container"
@@ -25,14 +24,6 @@ const Navbar: React.FC = () => {
           <Typography.Link>Ecommerce</Typography.Link>
         </Space>
       </Row>
-      <MobileIcon justify="end" align="middle">
-        <MenuOutlined style={{ fontSize: '2rem' }} />
-      </MobileIcon>
-      <Menu>
-        <Row>Teste</Row>
-        <Row>Teste</Row>
-        <Row>Teste</Row>
-      </Menu>
       <Row
         justify="center"
         style={{
@@ -84,7 +75,7 @@ const Navbar: React.FC = () => {
           )}
         </Space>
       </Row>
-    </EnhancedRow>
+    </Row>
   );
 };
 
