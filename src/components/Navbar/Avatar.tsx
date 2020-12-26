@@ -1,8 +1,9 @@
 import React, { useCallback } from 'react';
 import { Avatar as AntdAvatar, Dropdown, Menu } from 'antd';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signOutAction } from '../../store/modules/auth';
 import { Link } from 'react-router-dom';
+import { AppState } from '../../store/rootReducer';
 
 const Avatar: React.FC = () => {
   const dispatch = useDispatch();
@@ -10,6 +11,10 @@ const Avatar: React.FC = () => {
   const handleExit = useCallback(() => {
     dispatch(signOutAction());
   }, [dispatch]);
+
+  const { imageUrl } = useSelector((state: AppState) => state.auth.user);
+
+  console.log(imageUrl);
 
   const menu = (
     <Menu>
@@ -26,7 +31,7 @@ const Avatar: React.FC = () => {
     <Dropdown overlay={menu} placement="bottomRight">
       <AntdAvatar
         style={{ cursor: 'pointer' }}
-        src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png"
+        src={imageUrl}
         shape="circle"
         size={64}
       />

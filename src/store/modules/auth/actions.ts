@@ -1,15 +1,14 @@
 import { action } from 'typesafe-actions';
 import { IReducerAction } from '../../rootReducer';
-import { AuthActionTypes, ILogin, IRegister } from './';
+import { AuthActionTypes, ILogin, IRegister, LoginSuccessPayload } from './';
 
 export const fetchLoginAction = (payload: ILogin): IReducerAction<ILogin> =>
   action(AuthActionTypes.FETCH_LOGIN, payload);
 
-export const fetchLoginActionSuccess = (token: {
-  token: string;
-}): IReducerAction<{
-  token: string;
-}> => action(AuthActionTypes.FETCH_LOGIN_SUCCESS, token);
+export const fetchLoginActionSuccess = (
+  payload: LoginSuccessPayload
+): IReducerAction<LoginSuccessPayload> =>
+  action(AuthActionTypes.FETCH_LOGIN_SUCCESS, payload);
 
 export const fetchLoginActionError = (): IReducerAction<{}> =>
   action(AuthActionTypes.FETCH_LOGIN_ERROR, {});

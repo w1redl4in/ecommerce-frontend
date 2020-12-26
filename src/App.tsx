@@ -8,6 +8,7 @@ import store from './store';
 import Helmet from 'react-helmet';
 import favicon from './assets/buy.svg';
 import history from './services/history';
+import { Startup } from './components/Startup';
 
 function App() {
   return (
@@ -17,8 +18,10 @@ function App() {
         <title>Ecommerce</title>
         <link rel="icon" href={favicon} />
       </Helmet>
+
       <Router history={history}>
         <Provider store={store}>
+          <Startup />
           <Routes />
         </Provider>
       </Router>

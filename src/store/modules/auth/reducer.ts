@@ -1,17 +1,23 @@
 import produce from 'immer';
 import { IReducerAction } from '../../rootReducer';
-import { IAuthState, ILogin, IRegister, AuthActionTypes } from './';
+import {
+  IAuthState,
+  ILogin,
+  IRegister,
+  IUser,
+  AuthActionTypes,
+  LoginSuccessPayload,
+} from './';
 import history from '../../../services/history';
 
 const initialState: IAuthState = {
-  login: {} as ILogin,
-  register: {} as IRegister,
   isLoading: false,
+  user: {} as IUser,
 };
 
 export default function authReducer(
   state = initialState,
-  action: IReducerAction<ILogin | IRegister | string | { token: string }>
+  action: IReducerAction<ILogin | IRegister | string | LoginSuccessPayload>
 ) {
   switch (action.type) {
     case AuthActionTypes.FETCH_LOGIN:
@@ -21,16 +27,18 @@ export default function authReducer(
 
     case AuthActionTypes.FETCH_LOGIN_SUCCESS:
       return produce(state, (draft) => {
-        const { token } = action.payload as { token: string };
-        console.log(token);
+        const { token, user } = action.payload as LoginSuccessPayload;
+        draft.user = user;
         draft.isLoading = false;
         sessionStorage.setItem('token', token);
+        sessionStorage.setItem('user', JSON.stringify(user));
       });
 
     case AuthActionTypes.FETCH_LOGIN_ERROR:
       return produce(state, (draft) => {
         draft.isLoading = false;
-        sessionStorage.setItem('token', '');
+        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('user');
       });
 
     case AuthActionTypes.FETCH_REGISTER:
@@ -52,6 +60,7 @@ export default function authReducer(
       return produce(state, (draft) => {
         draft.isLoading = false;
         sessionStorage.removeItem('token');
+        sessionStorage.removeItem('user');
         history.push('/');
       });
 
