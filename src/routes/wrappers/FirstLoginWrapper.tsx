@@ -1,27 +1,25 @@
 import { Redirect, Route } from 'react-router-dom';
-import HomeLayout from '../../layout/Home';
+import Layout from '../../layout/FirstLogin';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../store/rootReducer';
 
-export default function LoginAndRegisterLayout({
+export default function FirstLoginWrapper({
   component: Component,
   ...rest
 }: any): JSX.Element {
   const { firstLogin } = useSelector((state: AppState) => state.auth.user);
-
-  console.log(firstLogin, 'firstLogin');
 
   return (
     <Route
       {...rest}
       render={(props) =>
         firstLogin ? (
-          <Redirect to="/first-login" />
-        ) : (
-          <HomeLayout>
+          <Layout>
             <Component />
-          </HomeLayout>
+          </Layout>
+        ) : (
+          <Redirect to="/" />
         )
       }
     />

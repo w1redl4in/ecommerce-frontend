@@ -21,7 +21,10 @@ export function* fetchLoginSaga(action: IReducerAction<ILogin>) {
       password,
     });
     yield put(fetchLoginActionSuccess(response.data));
-    history.push('/');
+
+    response.data.user.firstLogin
+      ? history.push('/first-login')
+      : history.push('/');
   } catch (error) {
     yield put(fetchLoginActionError());
     notification.error({
