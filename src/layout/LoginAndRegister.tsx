@@ -1,6 +1,5 @@
 import { Layout as AntdLayout, Col } from 'antd';
 import React from 'react';
-import Footer from '../components/Footer';
 import Header from '../components/Header';
 import { Sidebar, Image } from '../components/Sidebar/styles';
 
@@ -19,9 +18,6 @@ const Layout: React.FC = ({ children }) => {
           <Header />
         </AntdLayout.Header>
         <AntdLayout.Content>{children}</AntdLayout.Content>
-        {/* <AntdLayout.Footer>
-          <Footer />
-        </AntdLayout.Footer> */}
       </AntdLayout>
     </AntdLayout>
   );

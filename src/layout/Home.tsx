@@ -1,6 +1,5 @@
 import React from 'react';
 import { Layout } from 'antd';
-import { isMobile } from 'react-device-detect';
 
 import Navbar from '../components/Navbar';
 import FooterS from '../components/Footer';

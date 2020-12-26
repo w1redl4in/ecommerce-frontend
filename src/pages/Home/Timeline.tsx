@@ -1,19 +1,11 @@
 import React from 'react';
-import {
-  Row,
-  Col,
-  Timeline as AntdTimeline,
-  Typography,
-  Divider,
-  Space,
-} from 'antd';
+import { Row, Col, Timeline as AntdTimeline, Typography, Divider } from 'antd';
 import theme from '../../theme/theme';
 import FastTravel from '../../assets/fast-travel.json';
 import Lottie from '../../config/Lottie';
 import {
   BarcodeOutlined,
   CarOutlined,
-  CheckCircleOutlined,
   CreditCardOutlined,
   HomeOutlined,
   UndoOutlined,
