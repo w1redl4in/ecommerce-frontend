@@ -16,6 +16,6 @@ export interface AppState {
 
 export default combineReducers({
   helloWorld: helloWorldReducer,
-  user: userReducer,
+  userStore: userReducer,
   forgotPassword: forgotPasswordReducer,
 });
