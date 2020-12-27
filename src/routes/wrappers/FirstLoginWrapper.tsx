@@ -8,7 +8,7 @@ export default function FirstLoginWrapper({
   component: Component,
   ...rest
 }: any): JSX.Element {
-  const { firstLogin } = useSelector((state: AppState) => state.auth.user);
+  const { firstLogin } = useSelector((state: AppState) => state.userStore.user);
 
   return (
     <Route

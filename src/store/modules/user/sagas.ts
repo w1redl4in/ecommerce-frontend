@@ -5,7 +5,7 @@ import {
   fetchLoginActionError,
   fetchRegisterActionError,
   fetchRegisterActionSuccess,
-  AuthActionTypes,
+  UserActionTypes,
   ILogin,
   IRegister,
 } from '.';
@@ -63,6 +63,6 @@ export function* fetchRegisterSaga(action: IReducerAction<IRegister>) {
 }
 
 export default all([
-  takeLatest(AuthActionTypes.FETCH_LOGIN, fetchLoginSaga),
-  takeLatest(AuthActionTypes.FETCH_REGISTER, fetchRegisterSaga),
+  takeLatest(UserActionTypes.FETCH_LOGIN, fetchLoginSaga),
+  takeLatest(UserActionTypes.FETCH_REGISTER, fetchRegisterSaga),
 ]);

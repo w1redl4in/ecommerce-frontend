@@ -1,31 +1,31 @@
 import produce from 'immer';
 import { IReducerAction } from '../../rootReducer';
 import {
-  IAuthState,
+  IUserState,
   ILogin,
   IRegister,
   IUser,
-  AuthActionTypes,
+  UserActionTypes,
   LoginSuccessPayload,
 } from './';
 import history from '../../../services/history';
 
-const initialState: IAuthState = {
+const initialState: IUserState = {
   isLoading: false,
   user: {} as IUser,
 };
 
-export default function authReducer(
+export default function userReducer(
   state = initialState,
   action: IReducerAction<ILogin | IRegister | string | LoginSuccessPayload>
 ) {
   switch (action.type) {
-    case AuthActionTypes.FETCH_LOGIN:
+    case UserActionTypes.FETCH_LOGIN:
       return produce(state, (draft) => {
         draft.isLoading = true;
       });
 
-    case AuthActionTypes.FETCH_LOGIN_SUCCESS:
+    case UserActionTypes.FETCH_LOGIN_SUCCESS:
       return produce(state, (draft) => {
         const { token, user } = action.payload as LoginSuccessPayload;
         draft.user = user;
@@ -34,29 +34,29 @@ export default function authReducer(
         sessionStorage.setItem('user', JSON.stringify(user));
       });
 
-    case AuthActionTypes.FETCH_LOGIN_ERROR:
+    case UserActionTypes.FETCH_LOGIN_ERROR:
       return produce(state, (draft) => {
         draft.isLoading = false;
         sessionStorage.removeItem('token');
         sessionStorage.removeItem('user');
       });
 
-    case AuthActionTypes.FETCH_REGISTER:
+    case UserActionTypes.FETCH_REGISTER:
       return produce(state, (draft) => {
         draft.isLoading = true;
       });
 
-    case AuthActionTypes.FETCH_REGISTER_SUCCESS:
+    case UserActionTypes.FETCH_REGISTER_SUCCESS:
       return produce(state, (draft) => {
         draft.isLoading = false;
       });
 
-    case AuthActionTypes.FETCH_REGISTER_ERROR:
+    case UserActionTypes.FETCH_REGISTER_ERROR:
       return produce(state, (draft) => {
         draft.isLoading = false;
       });
 
-    case AuthActionTypes.SIGN_OUT:
+    case UserActionTypes.SIGN_OUT:
       return produce(state, (draft) => {
         draft.isLoading = false;
         sessionStorage.removeItem('token');

@@ -1,6 +1,6 @@
-export type IAuthState = IAuth;
+export type IUserState = IUserType;
 
-export type IAuth = {
+export type IUserType = {
   user: IUser;
   isLoading: boolean;
 };
@@ -31,7 +31,7 @@ export type LoginSuccessPayload = {
   user: IUser;
 };
 
-export const AuthActionTypes = {
+export const UserActionTypes = {
   FETCH_LOGIN: '@@auth/FETCH_LOGIN',
   FETCH_LOGIN_SUCCESS: '@@auth/FETCH_LOGIN_SUCCESS',
   FETCH_LOGIN_ERROR: '@@auth/FETCH_LOGIN_ERROR',

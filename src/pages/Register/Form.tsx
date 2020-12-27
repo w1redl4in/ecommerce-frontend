@@ -4,7 +4,7 @@ import Lottie from '../../config/Lottie';
 import ShopLottie from '../../assets/login-lottie.json';
 import Theme from '../../theme/theme';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRegisterAction } from '../../store/modules/auth';
+import { fetchRegisterAction } from '../../store/modules/user';
 import { AppState } from '../../store/rootReducer';
 
 type IRegister = {
@@ -16,7 +16,7 @@ type IRegister = {
 const RegisterForm: React.FC = () => {
   const dispatch = useDispatch();
 
-  const { isLoading } = useSelector((state: AppState) => state.auth);
+  const { isLoading } = useSelector((state: AppState) => state.userStore);
 
   const onFinish = useCallback(
     async (values: IRegister) => {

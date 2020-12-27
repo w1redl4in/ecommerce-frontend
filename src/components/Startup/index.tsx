@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchLoginActionSuccess } from '../../store/modules/auth';
+import { fetchLoginActionSuccess } from '../../store/modules/user';
 
 export const Startup: React.FC = (): JSX.Element => {
   const dispatch = useDispatch();

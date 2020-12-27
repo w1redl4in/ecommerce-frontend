@@ -8,7 +8,7 @@ export default function LoginAndRegisterLayout({
   component: Component,
   ...rest
 }: any): JSX.Element {
-  const { firstLogin } = useSelector((state: AppState) => state.auth.user);
+  const { firstLogin } = useSelector((state: AppState) => state.userStore.user);
 
   console.log(firstLogin, 'firstLogin');
 

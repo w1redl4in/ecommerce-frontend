@@ -4,7 +4,7 @@ import Lottie from '../../config/Lottie';
 import ShopLottie from '../../assets/login-lottie.json';
 import Theme from '../../theme/theme';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchLoginAction } from '../../store/modules/auth';
+import { fetchLoginAction } from '../../store/modules/user';
 import { AppState } from '../../store/rootReducer';
 import theme from '../../theme/theme';
 import { openForgotPasswordModal } from '../../store/modules/forgot-password';
@@ -17,7 +17,7 @@ type Login = {
 const LogInForm: React.FC = () => {
   const dispatch = useDispatch();
 
-  const { isLoading } = useSelector((state: AppState) => state.auth);
+  const { isLoading } = useSelector((state: AppState) => state.userStore);
 
   const onFinish = useCallback(
     async (values: Login) => {

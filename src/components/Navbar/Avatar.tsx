@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { Avatar as AntdAvatar, Dropdown, Menu } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { signOutAction } from '../../store/modules/auth';
+import { signOutAction } from '../../store/modules/user';
 import { Link } from 'react-router-dom';
 import { AppState } from '../../store/rootReducer';
 
@@ -12,7 +12,7 @@ const Avatar: React.FC = () => {
     dispatch(signOutAction());
   }, [dispatch]);
 
-  const { imageUrl } = useSelector((state: AppState) => state.auth.user);
+  const { imageUrl } = useSelector((state: AppState) => state.userStore.user);
 
   const menu = (
     <Menu>
