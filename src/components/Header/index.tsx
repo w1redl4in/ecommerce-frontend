@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Button, Typography, Space } from 'antd';
 import { Link } from 'react-router-dom';
 import theme from '../../theme/theme';
+import EcommerceLogo from '../Logo';
 
 const Header: React.FC = () => {
   return (
@@ -12,9 +13,7 @@ const Header: React.FC = () => {
         style={{ width: '100%', height: '100%' }}
       >
         <Row align="middle">
-          <Typography.Title level={1} style={{ color: theme.colors.primary }}>
-            logo
-          </Typography.Title>
+          <EcommerceLogo />
         </Row>
 
         <Space size="large">

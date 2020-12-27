@@ -1,12 +1,12 @@
 import { Badge, Button, Dropdown, Row, Space, Typography } from 'antd';
 import React from 'react';
 import useToken from '../../hooks/auth';
-import BuyLogo from '../../assets/buy.svg';
 import { Link } from 'react-router-dom';
 import Avatar from './Avatar';
 import DropdownMenu from './Dropdown';
 import theme from '../../theme/theme';
 import { DownOutlined } from '@ant-design/icons';
+import EcommerceLogo from '../Logo';
 
 const Navbar: React.FC = () => {
   const token = useToken();
@@ -19,10 +19,7 @@ const Navbar: React.FC = () => {
       style={{ padding: '0 2rem' }}
     >
       <Row align="middle">
-        <Space size="large">
-          <img src={BuyLogo} alt="logo" width="50px" />
-          <Typography.Link>Ecommerce</Typography.Link>
-        </Space>
+        <EcommerceLogo size="150px" />
       </Row>
       <Row
         justify="center"

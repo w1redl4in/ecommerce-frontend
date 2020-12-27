@@ -25,3 +25,12 @@ export const fetchRegisterActionError = (): IReducerAction<{}> =>
 
 export const signOutAction = (): IReducerAction<{}> =>
   action(UserActionTypes.SIGN_OUT, {});
+
+export const fetchUserDataAction = () =>
+  action(UserActionTypes.FETCH_USER_DATA, {});
+
+export const fetchUserDataActionSuccess = (payload) =>
+  action(UserActionTypes.FETCH_USER_DATA_SUCCESS, payload);
+
+export const fetchUserDataActionError = () =>
+  action(UserActionTypes.FETCH_USER_DATA_ERROR, {});

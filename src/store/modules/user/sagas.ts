@@ -12,6 +12,7 @@ import {
 import { ecommerceApi } from '../../../services/api';
 import { IReducerAction } from '../../rootReducer';
 import history from '../../../services/history';
+import { fetchUserDataActionSuccess } from './actions';
 
 export function* fetchLoginSaga(action: IReducerAction<ILogin>) {
   try {
@@ -62,7 +63,21 @@ export function* fetchRegisterSaga(action: IReducerAction<IRegister>) {
   }
 }
 
+export function* fetchUserData() {
+  try {
+    const token = sessionStorage.getItem('token');
+    const response = yield call(ecommerceApi.get, '/users/getUserInfo', {
+      headers: { Authorization: token },
+    });
+    yield put(fetchUserDataActionSuccess(response.data));
+    console.log(response);
+  } catch (error) {
+    yield put(fetchLoginActionError());
+  }
+}
+
 export default all([
   takeLatest(UserActionTypes.FETCH_LOGIN, fetchLoginSaga),
   takeLatest(UserActionTypes.FETCH_REGISTER, fetchRegisterSaga),
+  takeLatest(UserActionTypes.FETCH_USER_DATA, fetchUserData),
 ]);
