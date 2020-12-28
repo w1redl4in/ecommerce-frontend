@@ -1,7 +1,7 @@
 import produce from 'immer';
 import Image from '../../../pages/FirstLogin/Image';
 import { IReducerAction } from '../../rootReducer';
-import { ApplicationActionTypes, IApplicationState, IFirstLogin } from './';
+import { ApplicationActionTypes, IApplicationState } from './';
 
 const initialState: IApplicationState = {
   firstLogin: {
