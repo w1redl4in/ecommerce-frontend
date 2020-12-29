@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const ecommerceApi = axios.create({
-  baseURL: 'http://localhost:3500/ecommerce',
+  baseURL: process.env.REACT_APP_ECOMMERCE_URL,
 });
 
 export const ipApi = axios.create({
