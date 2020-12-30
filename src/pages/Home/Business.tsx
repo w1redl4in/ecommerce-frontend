@@ -58,7 +58,7 @@ const Business: React.FC = () => {
     {
       name: 'Vinicius Sousa',
       image:
-        'https://cdn.discordapp.com/attachments/421799034169196584/790319338375872542/indice.png',
+        'https://cdn.discordapp.com/attachments/421799034169196584/793953102461141002/1609355448750.png',
       job: 'Software Engineer',
       linkedin: 'https://www.linkedin.com/in/viniciussouza23/',
       github: 'https://github.com/ZeroBulletiss',
