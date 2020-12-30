@@ -56,7 +56,7 @@ const Business: React.FC = () => {
       blog: '',
     },
     {
-      name: 'Vinicius Sousa',
+      name: 'Vinicius Souza',
       image:
         'https://cdn.discordapp.com/attachments/421799034169196584/793953102461141002/1609355448750.png',
       job: 'Software Engineer',
