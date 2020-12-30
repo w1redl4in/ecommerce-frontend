@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import LoginAndRegisterRoute from './wrappers/LoginAndRegisterWrapper';
 import HomeRoute from './wrappers/HomeWrapper';
@@ -18,7 +18,7 @@ const Routes: React.FC = () => (
     <LoginAndRegisterRoute path="/login" component={SignIn} />
     <LoginAndRegisterRoute path="/register" component={SignUp} />
     <FirstLoginWrapper path="/first-login" />
-    <Page404 />
+    <Route path="*" component={Page404} />
   </Switch>
 );
 
