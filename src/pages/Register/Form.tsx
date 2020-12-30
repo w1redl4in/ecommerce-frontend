@@ -6,6 +6,8 @@ import Theme from '../../theme/theme';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRegisterAction } from '../../store/modules/user';
 import { AppState } from '../../store/rootReducer';
+import { hashPassword } from '../../utils/hashPassword';
+import { secrets } from '../../config/config';
 
 type IRegister = {
   name: string;
@@ -20,7 +22,17 @@ const RegisterForm: React.FC = () => {
 
   const onFinish = useCallback(
     async (values: IRegister) => {
-      dispatch(fetchRegisterAction(values));
+      dispatch(
+        fetchRegisterAction({
+          email: values.email,
+          name: values.name,
+          password: hashPassword(
+            values.email,
+            values.password,
+            secrets.passwordSecret
+          ),
+        })
+      );
     },
     [dispatch]
   );
