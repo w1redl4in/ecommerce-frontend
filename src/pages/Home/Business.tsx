@@ -12,13 +12,48 @@ import theme from '../../theme/theme';
 const Business: React.FC = () => {
   const [contributors] = useState([
     {
+      name: 'Vitor Delfino',
+      image:
+        'https://avatars3.githubusercontent.com/u/19233898?s=460&u=b8727e4feaedbd30d92e723a5e67bdd7327f13bf&v=4',
+      job: 'Software Engineer',
+      linkedin: 'https://www.linkedin.com/in/vitor-delfino/',
+      hasPortfolio: true,
+      behance: false,
+      github: 'https://github.com/vitordelfino',
+      blog: 'https://www.vitordelfino.dev/',
+    },
+    {
       name: 'Felipe Austríaco',
       image:
-        'https://cdn.discordapp.com/attachments/421799034169196584/790324606653300766/pp.png',
+        'https://media.discordapp.net/attachments/723249940423507998/793934039186276352/dev.jpeg',
       job: 'Software Engineer',
       linkedin: 'https://www.linkedin.com/in/felipe-austriaco-dev/',
       github: 'https://github.com/w1redl4in',
-      blog: 'https://felipeaustriaco.dev',
+      hasPortfolio: true,
+      blog: 'https://www.felipeaustriaco.dev/',
+      behance: false,
+    },
+    {
+      name: 'Lucas Leão',
+      image:
+        'https://www.learning.uclg.org/sites/default/files/styles/featured_home_left/public/no-user-image-square.jpg?itok=PANMBJF-',
+      job: 'Software Engineer',
+      linkedin: 'https://www.linkedin.com/in/lucas-l-866959196/',
+      github: 'https://github.com/lucasleaosobral',
+      hasPortfolio: false,
+      blog: '',
+      behance: false,
+    },
+    {
+      name: 'Vinicius Santos',
+      image:
+        'https://cdn.discordapp.com/attachments/333739802501316609/793937625174114354/estag.jpeg',
+      job: 'Software Engineer',
+      linkedin: 'https://www.linkedin.com/in/vinicius-santos-024774184/',
+      hasPortfolio: false,
+      behance: false,
+      github: 'https://github.com/vinebks',
+      blog: '',
     },
     {
       name: 'Vinicius Sousa',
@@ -28,6 +63,8 @@ const Business: React.FC = () => {
       linkedin: 'https://www.linkedin.com/in/viniciussouza23/',
       github: 'https://github.com/ZeroBulletiss',
       blog: '',
+      hasPortfolio: false,
+      behance: false,
     },
     {
       name: 'Nestor Macedo',
@@ -38,6 +75,7 @@ const Business: React.FC = () => {
       github: '',
       blog: '',
       behance: true,
+      hasPortfolio: false,
     },
   ]);
 
@@ -60,42 +98,73 @@ const Business: React.FC = () => {
                 align="middle"
                 key={contributor.name}
               >
-                <Space>
-                  <Avatar src={contributor.image} size={64} />
-                  <Typography.Text strong>{contributor.name}</Typography.Text> -
-                  <Typography.Text strong>{contributor.job}</Typography.Text> -
-                  <a
-                    href={contributor.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
+                <Col span={12}>
+                  <Row align="middle" justify="space-between">
+                    <Avatar src={contributor.image} size={64} />
+                    <Typography.Text strong>
+                      {contributor.name}
+                    </Typography.Text>{' '}
+                    -<Typography.Text strong>{contributor.job}</Typography.Text>{' '}
+                    -
+                  </Row>
+                </Col>
+                <Col span={12}>
+                  <Row
+                    align="middle"
+                    justify="start"
+                    style={{ paddingLeft: '1rem' }}
                   >
-                    <LinkedinFilled style={{ fontSize: '2rem' }} />
-                  </a>
-                  {contributor.behance ? (
-                    <a
-                      href={contributor.github}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <BehanceSquareFilled
-                        style={{
-                          fontSize: '2rem',
-                        }}
-                      />
-                    </a>
-                  ) : (
-                    <a
-                      href={contributor.github}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <GithubFilled style={{ fontSize: '2rem' }} />
-                    </a>
-                  )}
-                  <a href={contributor.blog} target="_blank" rel="noreferrer">
-                    <TabletFilled style={{ fontSize: '2rem' }} />
-                  </a>
-                </Space>
+                    <Space>
+                      <a
+                        href={contributor.linkedin}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <LinkedinFilled
+                          style={{ fontSize: '2rem' }}
+                          title="LinkedIn"
+                        />
+                      </a>
+                      {contributor.behance ? (
+                        <a
+                          href={contributor.github}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <BehanceSquareFilled
+                            title="Behance"
+                            style={{
+                              fontSize: '2rem',
+                            }}
+                          />
+                        </a>
+                      ) : (
+                        <a
+                          href={contributor.github}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <GithubFilled
+                            title="Github"
+                            style={{ fontSize: '2rem' }}
+                          />
+                        </a>
+                      )}
+                      {contributor.hasPortfolio && (
+                        <a
+                          href={contributor.blog}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <TabletFilled
+                            title="Portfolio"
+                            style={{ fontSize: '2rem' }}
+                          />
+                        </a>
+                      )}
+                    </Space>
+                  </Row>
+                </Col>
               </Row>
             ))}
           </Col>
