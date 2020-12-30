@@ -18,7 +18,7 @@ const Routes: React.FC = () => (
     <LoginAndRegisterRoute path="/login" component={SignIn} />
     <LoginAndRegisterRoute path="/register" component={SignUp} />
     <FirstLoginWrapper path="/first-login" />
-    <Route path="*" component={Page404} />
+    <Route component={Page404} />
   </Switch>
 );
 
