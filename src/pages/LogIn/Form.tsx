@@ -8,6 +8,8 @@ import { fetchLoginAction } from '../../store/modules/user';
 import { AppState } from '../../store/rootReducer';
 import theme from '../../theme/theme';
 import { openForgotPasswordModal } from '../../store/modules/forgot-password';
+import { hashPassword } from '../../utils/hashPassword';
+import { secrets } from '../../config/config';
 
 type Login = {
   email: string;
@@ -21,7 +23,16 @@ const LogInForm: React.FC = () => {
 
   const onFinish = useCallback(
     async (values: Login) => {
-      dispatch(fetchLoginAction(values));
+      dispatch(
+        fetchLoginAction({
+          email: values.email,
+          password: hashPassword(
+            values.email,
+            values.password,
+            secrets.passwordSecret
+          ),
+        })
+      );
     },
     [dispatch]
   );
